@@ -18,7 +18,7 @@ body {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="#adventures" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADVENTURES</a>
     <a href="#upgrades" class="w3-bar-item w3-button w3-padding-large w3-hide-small">UPGRADES</a>
-    <p id="goldCount" class="w3-hide-small w3-right w3-margin-right">Player gold: <span>0</span></p>
+    <p id="goldCount" class="w3-hide-small w3-right w3-margin-right">Gold: <span>0</span></p>
   </div>
 </div>
 
@@ -40,28 +40,25 @@ body {font-family: "Lato", sans-serif}
     </p>
     </div>
 
-  <!-- The Tour Section -->
+  <!-- The Monsters Section -->
   <div class="w3-black" id="upgrades">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">TOUR DATES</h2>
-      <p class="w3-opacity w3-center"><i>Remember to book your tickets!</i></p><br>
-
-      <ul class="w3-ul w3-border w3-white w3-text-grey">
-        <li class="w3-padding">September <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
-        <li class="w3-padding">October <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
-        <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li>
-      </ul>
+      <h2 class="w3-wide w3-center">MONSTERS</h2>
+      <p class="w3-opacity w3-center"><i>A little gold goes a long way...</i></p><br>
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+       
         <div class="w3-third w3-margin-bottom">
-          <img src="/w3images/newyork.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+          <img src="goblins.jpg" alt="Goblins" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
-            <p><b>New York</b></p>
-            <p class="w3-opacity">Fri 27 Nov 2016</p>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+            <p><b>Goblins</b></p>
+            <p class="w3-opacity" id="goblins"><span>0</span></p>
+            <div class="w3-opacity nowrap" id="goblinCost"><span>10</span></div>
+            <p>Uninspiring, yet their greedy natures will find no qualm with taking your gold.</p>
+            <button class="w3-button w3-black w3-margin-bottom" id="goblinHireBtn">Hire</button>
           </div>
         </div>
+
         <div class="w3-third w3-margin-bottom">
           <img src="/w3images/paris.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
@@ -71,6 +68,7 @@ body {font-family: "Lato", sans-serif}
             <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
           </div>
         </div>
+
         <div class="w3-third w3-margin-bottom">
           <img src="/w3images/sanfran.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
@@ -78,11 +76,12 @@ body {font-family: "Lato", sans-serif}
             <p class="w3-opacity">Sun 29 Nov 2016</p>
             <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
             <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
-          </div>
         </div>
+        
       </div>
     </div>
   </div>
+</div>
 
   <!-- Ticket Modal -->
   <div id="ticketModal" class="w3-modal">
