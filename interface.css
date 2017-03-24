@@ -1,4 +1,4 @@
-﻿/* W3.CSS 3.01 Mar 2017 by Jan Egil and Borge Refsnes */
+/* W3.CSS 3.01 Mar 2017 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
 html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
@@ -360,3 +360,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-border-dark-grey,.w3-hover-border-dark-grey:hover,.w3-border-dark-gray,.w3-hover-border-dark-gray:hover{border-color:#616161!important}
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
+.fairyglade-bg {background-image: url('images/fairygladebg.jpg'); text-align: center!important;}
+.exploration-infobar {min-height: 135px; opacity: 0.7; z-index: 1; background-color: #cccccc; position: relative; text-align: center; vertical-align: middle;line-height: 135px; font-style:italic}
+.exploration-title {padding-top: 125px!important; text-shadow: 4px 4px 1px black, -1px -1px 0 #fff,1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;; color: #11aa11;}
+.white-outline {text-shadow:-1px -1px 0 #eee,1px -1px 0 #eee, -1px 1px 0 #eee, 1px 1px 0 #eee; opacity: 0.85}

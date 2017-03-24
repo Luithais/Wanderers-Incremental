@@ -10,9 +10,8 @@
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
+
 <body>
-
-
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card-2">
@@ -34,15 +33,16 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Page content -->
 
+
   <!-- The EXPLORATION Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="exploration">
-    <h2 class="w3-wide w3-margin-top w3-padding-64">THE FAIRY GLADE</h2>
-    <img src="images/emerald.png" alt="" id="goldBtn">
+  <div class="fairyglade-bg" id="exploration">
+    <h2 class="w3-wide w3-margin-top w3-padding-64 exploration-title white-outline">THE FAIRY GLADE</h2>
+    <img src="images/tree.png" alt="" id="goldBtn">
     <p class="w3-opacity w3-padding-16"><i>Click me!</i></p>
-    <p class="w3-justify">You awake to find yourself in a very generic looking fantasy forest. Filled with goblins,
-      rats, bats, and cats, not to mention a big bloomin' green gem that drops coins when you rub it.
-    </p>
-    </div>
+    <p class="w3-justify" style="z-index: 2"></p>
+    <div class="exploration-infobar w3-center">You awake to find yourself in a very generic looking fantasy forest. Filled with goblins,
+      rats, bats, and cats, not to mention a big bloomin' green gem that drops coins when you rub it.</div>
+  </div>
 
   <!-- The Monsters Section -->
   <div class="w3-black" id="monsters">
@@ -57,64 +57,21 @@ body {font-family: "Lato", sans-serif}
           <div class="w3-container w3-white">
             <p><b>Goblins</b></p>
             <p class="w3-opacity" id="goblins"><span>0</span></p>
-            <div class="w3-opacity nowrap" id="goblinCost"><span>10</span></div>
+            <div class="w3-opacity nowrap" id="goblinCost">Cost: <span>10</span></div>
             <p>Uninspiring, yet their greedy natures will find no qualm with taking your gold.</p>
             <button class="w3-button w3-black w3-margin-bottom" id="goblinHireBtn">Hire</button>
           </div>
         </div>
-
-        <div class="w3-third w3-margin-bottom">
-          <img src="/w3images/paris.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>Paris</b></p>
-            <p class="w3-opacity">Sat 28 Nov 2016</p>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
-          </div>
-        </div>
-
-        <div class="w3-third w3-margin-bottom">
-          <img src="/w3images/sanfran.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>San Francisco</b></p>
-            <p class="w3-opacity">Sun 29 Nov 2016</p>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
-        </div>
-        
       </div>
     </div>
   </div>
-</div>
 
-  <!-- Ticket Modal -->
-  <div id="ticketModal" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-8">
-      <header class="w3-container w3-teal w3-center w3-padding-32"> 
-        <span onclick="document.getElementById('ticketModal').style.display='none'" 
-       class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
-        <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
-      </header>
-      <div class="w3-container">
-        <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p>
-        <input class="w3-input w3-border" type="text" placeholder="How many?">
-        <p><label><i class="fa fa-user"></i> Send To</label></p>
-        <input class="w3-input w3-border" type="text" placeholder="Enter email">
-        <button class="w3-button w3-block w3-teal w3-padding-12 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
-        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
-      </div>
-    </div>
-  </div>
-  
 <!-- End Page Content -->
-</div>
-
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="main.js"></script>
-</footer>
+  <footer>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <script src="main.js"></script>
+  </footer>
 </body>
 </html>
