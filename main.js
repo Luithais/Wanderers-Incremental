@@ -32,7 +32,7 @@
     );
 
     $("#goblinHireBtn").click(function () { 
-        purchaseUnit(goblins, goblinCost);
+        purchaseUnit(&goblins, &goblinCost);
     });
 
     //Game loop
