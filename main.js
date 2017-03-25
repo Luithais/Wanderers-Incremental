@@ -1,44 +1,57 @@
 (function(){ "use strict";
-    var playerGold = 0;
-    var clickGoldAmount = 1;
 
-    var goblin = {count:0, cost:10};
+    /////   INITIALISE OBJECTS  /////
+        var goblin = {count:0, cost:10, production: 1};
+    /*------------------------------------------*/
+
+    /////   INITIALISE VARIABLES    /////
+        var playerGold = 0;
+        var clickGoldAmount = 1;
+        var goblinProductionTotal = goblin.count * goblin.production;
+    /*------------------------------------------*/
          
-   
-        /* if (unitType === 9) {                        //checks if player has bought 9 ...
-            alert("Migs the Mighty joins your cause!"); //...'adds' Migs the Mighty to adventurers
-        }*/
-        
-    var purchaseUnit = function (unit) {
-         if(playerGold >= unit.cost){                                     //checks that the player can afford the goblin
-            unit.count++;                                                  //increases number of goblins
-            playerGold = playerGold - unit.cost;                         //removes the gold spent
-            $("#goblins span").text(unit.count);                          //updates the number of goblins for the user
+    /////   FUNCTIONS   /////    
+        var purchaseUnit = function (unit){
+            if(playerGold >= unit.cost){                                     //checks that the player can afford the goblin
+                unit.count++;                                                  //increases number of goblins
+                playerGold = playerGold - unit.cost;                         //removes the gold spent
+                unit.cost = Math.floor(10 * Math.pow(1.1,unit.count));
+            }
+        };
+
+        var addGold = function(goldIncrease){
+            playerGold = playerGold + goldIncrease;
+        };
+
+    /*------------------------------------------*/
+
+    /////   HTML CLICK EVENTS   ////
+        //Tree
+        $("#goldBtn").click(function(){
+                console.log(playerGold);
+                console.log(goblinProductionTotal);
+                addGold(clickGoldAmount);
+                $("#goldCount span").text(playerGold);
+            }
+        );
+
+        //Hire 1 Goblin
+        $("#goblinHireBtn").click(function () { 
+            purchaseUnit(goblin);
+            $("#goblins span").text(goblin.count);                          //updates the number of goblins for the user
             $("#goldCount span").text(playerGold);                       //updates the number of gold for the user
-            $("#goblinCost span").text(unit.cost);                     //updates the goblin cost for the user
-            unitCost = Math.floor(10 * Math.pow(1.1,goblin.count));
-        }
-    };
+            $("#goblinCost span").text(goblin.cost);                     //updates the goblin cost for the user
+        });
 
-    var clickGold = function(clickGoldAmount)
-    {
-    playerGold = playerGold + clickGoldAmount;
-    };
-        
-    $("#goldBtn").click(function(){
-            clickGold(clickGoldAmount);
+    /*------------------------------------------*/
+
+    /////   GAME LOOP   /////
+        window.setInterval(function () {
+            goblinProductionTotal = goblin.count * goblin.production;
+            addGold(goblinProductionTotal);
             $("#goldCount span").text(playerGold);
-        }
-    );
+        }, 1000);
 
-    $("#goblinHireBtn").click(function () { 
-        purchaseUnit(goblin);
-    });
-
-    //Game loop
-    window.setInterval(function () {
-        clickGold(goblin.count);
-        $("#goldCount span").text(playerGold);
-    }, 1000);
+    /*------------------------------------------*/
 
  }());
