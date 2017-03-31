@@ -1,7 +1,7 @@
 (function(){ "use strict";
 
     /////   INITIALISE OBJECTS  /////
-        var goblin = {count:0, cost:10, production: 1};
+        var goblin = {count:0, cost:25, production: 1};
         var faerie = {count:0, cost:200, production: 5};
         var elf = {count:0, cost:750, production: 20};      
     /*------------------------------------------*/
