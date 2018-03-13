@@ -12,20 +12,61 @@ html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
     .tabcontent {
         display: none;
         padding: 6px 12px;
-        border: 1px solid #ccc;
+        border: 0px solid #ccc;
         border-top: none;
     }
 /*-----------------------------------------*/
+
+/*Float + Clearfix*/
+    /* tell the container's children to float left: */
+    .float-my-children > * {
+        float:left;
+        margin-right:5px;
+    }
+
+    /* this is called a clearfix. it makes sure that the container's children floats are cleared, without using extra markup */
+
+    .clearfix {
+        *zoom:1 /* for IE */
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        content: " ";
+        display: table;
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    /* end clearfix*/
+
 body, html {
     height:  100%;
     margin:  0px auto;
     padding: 0px auto;
 }
+
 .fairyglade-bg {background-image: url('images/fairygladebg.jpg'); text-align: center!important;background-repeat: no-repeat;
 }
+
 .workshop-bg {background-image: url('images/workshopbg.jpg');
 }
+
 .playArea {background-size: initial;height:1080px;width:1920px}
+
+.column {
+    float: left;
+}
+
+.left {
+    width: 35%;
+}
+
+.right {
+    width: 65%;
+}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
     html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
     article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}
