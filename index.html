@@ -5,23 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="interface.css" />
+    <link rel="stylesheet" type="text/css" href="workshop.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       body {font-family: "Lato", sans-serif}
       .mySlides {display: none}
     </style>
+
   </head>
   <body>
     <!-- Navbar -->
       <div class="w3-top">
-        <div class="w3-bar w3-black w3-card-2">
-          <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-          <a href="#production" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PRODUCTION</a>
-          <a href="#exploration" class="w3-bar-item w3-button w3-padding-large w3-hide-small">EXPLORATION</a>
-          <a href="#monsters" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MONSTERS</a>
-          <a href="#upgrades" class="w3-bar-item w3-button w3-padding-large w3-hide-small">UPGRADES</a>
-          <a href="#adventures" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADVENTURES</a>
+        <div class="tab w3-bar w3-black w3-card-2">
+          <button class="defaultOpen tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="workshopBtn">WORKSHOP</button>
+          <button class="tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="expBtn">EXPLORATION</button>
+          <button class="tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="workersBtn">WORKERS</button>
 
           <p id="goldCount" class="w3-hide-small w3-right w3-margin-right">Gold: <span>0</span></p>
         </div>
@@ -34,85 +33,91 @@
       </div>
 
     <!-- Page content -->
+      <div class="fairyglade-bg" id="wrapper" style="min-height:100%;height:auto">
+        <!-- The WORKSHOP Section -->
+          <div class="tabcontent" id="workshop" style="min-height:600px">
+              <h2 class="w3-wide w3-margin-top  exploration-title white-outline">THE WORKSHOP</h2>
 
-       <!-- The PRODUCTION Section -->
-       <div class="fairyglade-bg" id="production">
-         <h2 class="w3-wide w3-margin-top w3-padding-64 exploration-title white-outline">THE WORKSHOP</h2>
-                     <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+              <div class="w3-container" id="container" style="max-height:600px;max-width:inherit;overflow: scroll;margin-left:10%;margin-right:10%;margin-bottom:40px">
+                <div class="playArea workshop-bg" >       
+                  <img src="images/wood.png" id="shopIcon" class="draggable" style="max-width: 100%;height: auto;"></img>
+                  <img src="images/arrow.png" id="shopIcon" class="draggable" style="max-width: 100%;height: auto;"></img>
+                  <img src="images/bow.png" id="shopIcon" class="draggable" style="max-width: 100%;height: auto"></img>
+                </div>
+              </div>
+          </div>
+                                                            
+
             
-              <div class="w3-third w3-margin-bottom">
-                <img src="images/goblins.jpg" alt="Goblins" style="width:100%" class="w3-hover-opacity">
-                <div class="w3-container w3-white">
-                  <p><b>Goblins</b></p>
-                  <p class="w3-opacity" id="goblinCount">#: <span>0</span></p>
-                  <div class="w3-opacity nowrap" id="goblinCost">Cost: <span>25</span></div>
-                  <p>Uninspiring, yet their greedy natures will find no qualm with taking your gold.</p>
-                  <button class="w3-button w3-black w3-margin-bottom" id="goblinHireBtn">Hire</button>
+
+        <!-- The EXPLORATION Section -->
+          <div class="fairyglade-bg tabcontent" id="exploration">    
+            <div class="exploration-infobar w3-center">You awake to find yourself in a very generic looking fantasy forest. Filled with goblins,
+              rats, bats, and cats, not to mention a big bloomin' green gem that drops coins when you rub it.</div>
+          </div>
+
+        <!-- The WORKERS Section -->
+          <div class="w3-black tabcontent" id="workers">
+            <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+              <h2 class="w3-wide w3-center">WORKERS</h2>
+              <p class="w3-opacity w3-center"><i>A little gold goes a long way...</i></p><br>
+
+              <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+              
+                <div class="w3-third w3-margin-bottom">
+                  <img src="images/goblins.jpg" alt="Goblins" style="width:100%" class="w3-hover-opacity">
+                  <div class="w3-container w3-white">
+                    <p><b>Goblins</b></p>
+                    <p class="w3-opacity" id="goblinCount">#: <span>0</span></p>
+                    <div class="w3-opacity nowrap" id="goblinCost">Cost: <span>25</span></div>
+                    <p>Uninspiring, but their greedy natures will find no qualm with taking your gold.</p>
+                    <button class="w3-button w3-black w3-margin-bottom" id="goblinHireBtn">Hire</button>
+                  </div>
                 </div>
-              </div>
-       </div>
 
-      <!-- The EXPLORATION Section -->
-        <div class="fairyglade-bg" id="exploration">
-          <h2 class="w3-wide w3-margin-top w3-padding-64 exploration-title white-outline">THE FAERIE GLADE</h2>
-          <img src="images/tree.png" alt="" id="goldBtn">
-          <p class="w3-opacity w3-padding-16"><i>Click me!</i></p>
-          <p class="w3-justify" style="z-index: 2"></p>
-          <div class="exploration-infobar w3-center">You awake to find yourself in a very generic looking fantasy forest. Filled with goblins,
-            rats, bats, and cats, not to mention a big bloomin' green gem that drops coins when you rub it.</div>
-        </div>
-
-      <!-- The MONSTERS Section -->
-        <div class="w3-black" id="monsters">
-          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-            <h2 class="w3-wide w3-center">MONSTERS</h2>
-            <p class="w3-opacity w3-center"><i>A little gold goes a long way...</i></p><br>
-
-            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-            
-              <div class="w3-third w3-margin-bottom">
-                <img src="images/goblins.jpg" alt="Goblins" style="width:100%" class="w3-hover-opacity">
-                <div class="w3-container w3-white">
-                  <p><b>Goblins</b></p>
-                  <p class="w3-opacity" id="goblinCount">#: <span>0</span></p>
-                  <div class="w3-opacity nowrap" id="goblinCost">Cost: <span>25</span></div>
-                  <p>Uninspiring, yet their greedy natures will find no qualm with taking your gold.</p>
-                  <button class="w3-button w3-black w3-margin-bottom" id="goblinHireBtn">Hire</button>
+                <div class="w3-third w3-margin-bottom">
+                  <img src="images/faeries.jpg" alt="Fairies" style="width:100%" class="w3-hover-opacity">
+                  <div class="w3-container w3-white">
+                    <p><b>Faeries</b></p>
+                    <p class="w3-opacity" id="faerieCount">#: <span>0</span></p>
+                    <div class="w3-opacity nowrap" id="faerieCost">Cost: <span>200</span></div>
+                    <p>Glade faeries</p>
+                    <button class="w3-button w3-black w3-margin-bottom" id="faerieHireBtn">Hire</button>
+                  </div>
                 </div>
-              </div>
 
-              <div class="w3-third w3-margin-bottom">
-                <img src="images/faeries.jpg" alt="Fairies" style="width:100%" class="w3-hover-opacity">
-                <div class="w3-container w3-white">
-                  <p><b>Faeries</b></p>
-                  <p class="w3-opacity" id="faerieCount">#: <span>0</span></p>
-                  <div class="w3-opacity nowrap" id="faerieCost">Cost: <span>200</span></div>
-                  <p>Glade faeries</p>
-                  <button class="w3-button w3-black w3-margin-bottom" id="faerieHireBtn">Hire</button>
+                <div class="w3-third w3-margin-bottom">
+                  <img src="images/elves.jpg" alt="Elves" style="width:100%" class="w3-hover-opacity">
+                  <div class="w3-container w3-white">
+                    <p><b>Elves</b></p>
+                    <p class="w3-opacity" id="elfCount">#: <span>0</span></p>
+                    <div class="w3-opacity nowrap" id="elfCost">Cost: <span>750</span></div>
+                    <p>Wood elves</p>
+                    <button class="w3-button w3-black w3-margin-bottom" id="elfHireBtn">Hire</button>
+                  </div>
                 </div>
+
+
               </div>
-
-              <div class="w3-third w3-margin-bottom">
-                <img src="images/elves.jpg" alt="Elves" style="width:100%" class="w3-hover-opacity">
-                <div class="w3-container w3-white">
-                  <p><b>Elves</b></p>
-                  <p class="w3-opacity" id="elfCount">#: <span>0</span></p>
-                  <div class="w3-opacity nowrap" id="elfCost">Cost: <span>750</span></div>
-                  <p>Wood elves</p>
-                  <button class="w3-button w3-black w3-margin-bottom" id="elfHireBtn">Hire</button>
-                </div>
-              </div>
-
-
             </div>
           </div>
-        </div>
 
+        <!-- Bottom Bar -->
+        <div style="position:bottom; padding:80px;background-color:dimgrey"></div>
+      </div>
     <!-- End Page Content -->
+
     <!-- Footer -->
       <footer>
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-              <script src="main.js"></script>
+          <script src="interact.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <script src="itemProd.js"></script>
+          <script src="main.js"></script>
       </footer>
+            <!-- SCRIPTS-->
+            <script>
+                // Get the element with id="defaultOpen" and click on it
+                document.querySelector(".defaultOpen").click();
+            </script>
   </body>
 </html>
