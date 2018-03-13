@@ -3,7 +3,7 @@
     /////   INITIALISE OBJECTS  /////
         var goblin = {count:0, cost:25, production: 1};
         var faerie = {count:0, cost:200, production: 5};
-        var elf = {count:0, cost:750, production: 20};      
+        var elf = {count:0, cost:750, production: 20}; 
     /*------------------------------------------*/
 
     /////   INITIALISE VARIABLES    /////
@@ -12,16 +12,16 @@
     /*------------------------------------------*/
          
     /////   FUNCTIONS   /////    
-        var purchaseUnit = function (unit){
-            if(playerGold >= unit.cost){                                     //checks that the player can afford the goblin
-                unit.count++;                                                  //increases number of goblins
-                playerGold = playerGold - unit.cost;                         //removes the gold spent
-                unit.cost = Math.floor(unit.cost * Math.pow(1.1,unit.count));
+        var purchaseUnit = function (unit){                                    //Initialises purchaseUnit function, passes unit param
+            if(playerGold >= unit.cost){                                        //checks that the player can afford to purchase the unit
+                unit.count++;                                                   //adds 1 to unit count
+                playerGold = playerGold - unit.cost;                            //removes the gold spent
+                unit.cost = Math.floor(unit.cost * Math.pow(1.1,unit.count));   //calculates new unit cost
             }
         };
 
-        var addGold = function(goldIncrease){
-            playerGold = playerGold + goldIncrease;
+        var addGold = function(goldIncrease){                                  //Initialises addGold function, passes goldIncrease
+            playerGold = playerGold + goldIncrease;                             //adds goldIncrease to player's current gold
         };
 
     /*------------------------------------------*/
@@ -37,7 +37,7 @@
         //Hire 1 Goblin
         $("#goblinHireBtn").click(function () { 
             purchaseUnit(goblin);
-            $("#goblinCount span").text(goblin.count);                          //updates the number of goblins for the user
+            $("#goblinCount span").text(goblin.count);                   //updates the number of goblins for the user
             $("#goldCount span").text(playerGold);                       //updates the number of gold for the user
             $("#goblinCost span").text(goblin.cost);                     //updates the goblin cost for the user
         });
