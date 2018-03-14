@@ -1,3 +1,7 @@
 /out/
 /.vscode/
 .jshintrc
+node_,modules/*
+node_modules/.bin/babylon
+node_modules/.bin/babylon.cmd
+package-lock.json

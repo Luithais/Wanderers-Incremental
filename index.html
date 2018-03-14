@@ -1,123 +1,267 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Wanderer's Incremental</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="interface.css" />
-    <link rel="stylesheet" type="text/css" href="workshop.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      body {font-family: "Lato", sans-serif}
-      .mySlides {display: none}
-    </style>
 
-  </head>
-  <body>
-    <!-- Navbar -->
-      <div class="w3-top">
-        <div class="tab w3-bar w3-black w3-card-2">
-          <button class="defaultOpen tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="workshopBtn">WORKSHOP</button>
-          <button class="tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="expBtn">EXPLORATION</button>
-          <button class="tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="workersBtn">WORKERS</button>
+<head>
+  <title>Wanderer's Incremental</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="interface.css" />
+  <link rel="stylesheet" type="text/css" href="workshop.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: "Lato", sans-serif
+    }
 
-          <p id="goldCount" class="w3-hide-small w3-right w3-margin-right">Gold: <span>0</span></p>
-        </div>
-      </div>
+    .mySlides {
+      display: none
+    }
+  </style>
 
-    <!-- Navbar on small screens -->
-      <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-        <a href="#exploration" class="w3-bar-item w3-button w3-padding-large">EXPLORATION</a>
-        <a href="#upgrades" class="w3-bar-item w3-button w3-padding-large">UPGRADES</a>
-      </div>
+</head>
 
-    <!-- Page content -->
-      <div class="fairyglade-bg" id="wrapper" style="min-height:100%;height:auto">
-        <!-- The WORKSHOP Section -->
-          <div class="tabcontent" id="workshop" style="min-height:600px">
-              <h2 class="w3-wide w3-margin-top  exploration-title white-outline">THE WORKSHOP</h2>
+<body>
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="tab w3-bar w3-black w3-card-2">
+      <button class="defaultOpen tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="workshopBtn">WORKSHOP</button>
+      <button class="tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="expBtn">EXPLORATION</button>
+      <button class="tablinks w3-bar-item w3-button w3-padding-large w3-hide-small" id="workersBtn">WORKERS</button>
 
-              <div class="w3-container" id="container" style="max-height:600px;max-width:inherit;overflow: scroll;margin-left:10%;margin-right:10%;margin-bottom:40px">
-                <div class="playArea workshop-bg" >       
-                  <img src="images/wood.png" id="shopIcon" class="draggable" style="max-width: 100%;height: auto;"></img>
-                  <img src="images/arrow.png" id="shopIcon" class="draggable" style="max-width: 100%;height: auto;"></img>
-                  <img src="images/bow.png" id="shopIcon" class="draggable" style="max-width: 100%;height: auto"></img>
-                </div>
+      <p id="goldCount" class="w3-hide-small w3-right w3-margin-right">Gold:
+        <span>0</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="#exploration" class="w3-bar-item w3-button w3-padding-large">EXPLORATION</a>
+    <a href="#upgrades" class="w3-bar-item w3-button w3-padding-large">UPGRADES</a>
+  </div>
+
+  <!-- Page content -->
+  <div class="fairyglade-bg" id="wrapper" style="min-height:100%;height:auto">
+    <!-- The WORKSHOP Section -->
+      <div class="tabcontent" id="workshop" style="min-height:600px">
+
+        <h2 class="w3-wide w3-margin-top  exploration-title white-outline">THE WORKSHOP</h2>
+
+        <div class="row" style="margin-left:3%">
+
+          <div class="column left" style="background-color:gainsboro">
+            <h2>Materials</h2>
+            <p>Some text..</p>
+
+          <!--Wood-->
+            <div class="clearfix row">
+              <div class="column" style="width: 33%">
+                <img align="center" src="images/wood.png" style="max-height:84px"></img>
+                <p id="woodCount">#: <span>0</span></p>
               </div>
-          </div>
-                                                            
+              <div class="column" style="width: 33%">
+                <p style="text-align:left">Input:</p>
+                <div class="clearfix float-my-children">
 
-            
+                  <p id="woodOutput">Output: x
+                    <span>0</span>
+                  </p>
+                  <img align="bottom" src="images/wood.png" style="max-height:42px"></img>
 
-        <!-- The EXPLORATION Section -->
-          <div class="fairyglade-bg tabcontent" id="exploration">    
-            <div class="exploration-infobar w3-center">You awake to find yourself in a very generic looking fantasy forest. Filled with goblins,
-              rats, bats, and cats, not to mention a big bloomin' green gem that drops coins when you rub it.</div>
-          </div>
-
-        <!-- The WORKERS Section -->
-          <div class="w3-black tabcontent" id="workers">
-            <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-              <h2 class="w3-wide w3-center">WORKERS</h2>
-              <p class="w3-opacity w3-center"><i>A little gold goes a long way...</i></p><br>
-
-              <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-              
-                <div class="w3-third w3-margin-bottom">
-                  <img src="images/goblins.jpg" alt="Goblins" style="width:100%" class="w3-hover-opacity">
-                  <div class="w3-container w3-white">
-                    <p><b>Goblins</b></p>
-                    <p class="w3-opacity" id="goblinCount">#: <span>0</span></p>
-                    <div class="w3-opacity nowrap" id="goblinCost">Cost: <span>25</span></div>
-                    <p>Uninspiring, but their greedy natures will find no qualm with taking your gold.</p>
-                    <button class="w3-button w3-black w3-margin-bottom" id="goblinHireBtn">Hire</button>
-                  </div>
                 </div>
 
-                <div class="w3-third w3-margin-bottom">
-                  <img src="images/faeries.jpg" alt="Fairies" style="width:100%" class="w3-hover-opacity">
-                  <div class="w3-container w3-white">
-                    <p><b>Faeries</b></p>
-                    <p class="w3-opacity" id="faerieCount">#: <span>0</span></p>
-                    <div class="w3-opacity nowrap" id="faerieCost">Cost: <span>200</span></div>
-                    <p>Glade faeries</p>
-                    <button class="w3-button w3-black w3-margin-bottom" id="faerieHireBtn">Hire</button>
-                  </div>
+              </div>
+              <div class="column" style="width: 33%">
+                <p id="woodCost">Cost:
+                  <span>20</span>g</p>
+                <button id="woodUpgradeBtn">Upgrade</button>
+              </div>
+            </div>
+          
+          <!--Arrow-->
+            <div class="clearfix row" style="border-top-style:ridge; padding-top: 15px">
+              <div class="column" style="width: 33%">
+                <img src="images/arrow.png" style="max-height:84px"></img>
+                <p id="arrowCount">#: <span>0</span></p>
+              </div>
+              <div class="column" style="width: 33%">
+                <div class="clearfix float-my-children">
+    
+                  <p id="arrowInput" style="text-align:left">Input: x
+                    <span>1</span>
+                  </p>
+                  
+                  <img align="bottom" src="images/wood.png" style="max-height:42px"></img>
+    
                 </div>
-
-                <div class="w3-third w3-margin-bottom">
-                  <img src="images/elves.jpg" alt="Elves" style="width:100%" class="w3-hover-opacity">
-                  <div class="w3-container w3-white">
-                    <p><b>Elves</b></p>
-                    <p class="w3-opacity" id="elfCount">#: <span>0</span></p>
-                    <div class="w3-opacity nowrap" id="elfCost">Cost: <span>750</span></div>
-                    <p>Wood elves</p>
-                    <button class="w3-button w3-black w3-margin-bottom" id="elfHireBtn">Hire</button>
-                  </div>
+                <div class="clearfix float-my-children">
+    
+                  <p id="arrowOutput">Output: x
+                    <span>0</span>
+                  </p>
+                  
+                  <img align="bottom" src="images/arrow.png" style="max-height:42px"></img>
+    
                 </div>
-
+    
+              </div>
+              <div class="column" style="width: 33%">
+                <p id="arrowCost">Cost:
+                  <span>100</span>g</p>
+                <button id="arrowUpgradeBtn">Upgrade</button>
 
               </div>
             </div>
+
+          <!--Bow-->
+            <div class="clearfix row" style="border-top-style:ridge; padding-top: 15px">
+              <div class="column" style="width: 33%">
+                <img src="images/bow.png" style="max-height:84px"></img>
+                <p id="bowCount">#: <span>0</span></p>
+              </div>
+              <div class="column clearfix float-my-children" style="width: 33%">
+                <div class="clearfix float-my-children">
+    
+                  <p id="bowInput1" style="text-align:left">Input: x
+                    <span>2</span>
+                  </p>
+                  <img align="bottom" src="images/wood.png" style="max-height:42px"></img>
+                  
+                  <p class="clearfix" id="bowInput2" style="text-align:left">x
+                    <span>5</span>
+                  </p>
+                  <img  src="images/arrow.png" style="max-height:42px"></img>
+                  
+    
+                </div>
+                <div class="clearfix float-my-children">
+
+                  <p id="bowOutput">Output: x
+                    <span>0</span>
+                  </p>
+                  
+                  <img align="bottom" src="images/bow.png" style="max-height:42px"></img>
+
+                </div>
+
+              </div>
+
+              <div class="column" style="width: 33%">
+                <p id="bowCost">Cost:
+                  <span>1500</span>g
+                </p>
+
+                <button id="bowUpgradeBtn">Upgrade</button>
+
+              </div>
+            </div>
+
+
+        </div>
+
+        <div class="column right">
+          <div class="w3-container" id="container" style="max-height:600px;max-width:inherit;overflow: scroll;margin-left:10%;margin-right:10%;margin-bottom:40px">
+            <div class="playArea workshop-bg">
+              <img src="images/wood.png" align="left" id="shopIcon" class="draggable" style="max-width: 100%;height: auto;"></img>
+              <img src="images/arrow.png" align="left" id="shopIcon" class="draggable" style="max-width: 100%;height: auto;"></img>
+              <img src="images/bow.png" align="left" id="shopIcon" class="draggable" style="max-width: 100%;height: auto"></img>
+            </div>
           </div>
+        </div>
 
-        <!-- Bottom Bar -->
-        <div style="position:bottom; padding:80px;background-color:dimgrey"></div>
       </div>
-    <!-- End Page Content -->
+      </div>
+    <!-- The EXPLORATION Section -->
+      <div class="fairyglade-bg tabcontent" id="exploration">
+        <div class="exploration-infobar w3-center">You awake to find yourself in a very generic looking fantasy forest. Filled with goblins, rats, bats, and cats, not to
+          mention a big bloomin' green gem that drops coins when you rub it.</div>
+      </div>
 
-    <!-- Footer -->
-      <footer>
-          <script src="interact.js"></script>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-          <script src="itemProd.js"></script>
-          <script src="main.js"></script>
-      </footer>
-            <!-- SCRIPTS-->
-            <script>
-                // Get the element with id="defaultOpen" and click on it
-                document.querySelector(".defaultOpen").click();
-            </script>
-  </body>
+    <!-- The WORKERS Section -->
+      <div class="w3-black tabcontent" id="workers">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+          <h2 class="w3-wide w3-center">WORKERS</h2>
+          <p class="w3-opacity w3-center">
+            <i>A little gold goes a long way...</i>
+          </p>
+          <br>
+
+          <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+
+            <div class="w3-third w3-margin-bottom">
+              <img src="images/goblins.jpg" alt="Goblins" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p>
+                  <b>Goblins</b>
+                </p>
+                <p class="w3-opacity" id="goblinCount">#:
+                  <span>0</span>
+                </p>
+                <div class="w3-opacity nowrap" id="goblinCost">Cost:
+                  <span>25</span>
+                </div>
+                <p>Uninspiring, but their greedy natures will find no qualm with taking your gold.</p>
+                <button class="w3-button w3-black w3-margin-bottom" id="goblinHireBtn">Hire</button>
+              </div>
+            </div>
+
+            <div class="w3-third w3-margin-bottom">
+              <img src="images/faeries.jpg" alt="Fairies" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p>
+                  <b>Faeries</b>
+                </p>
+                <p class="w3-opacity" id="faerieCount">#:
+                  <span>0</span>
+                </p>
+                <div class="w3-opacity nowrap" id="faerieCost">Cost:
+                  <span>200</span>
+                </div>
+                <p>Glade faeries</p>
+                <button class="w3-button w3-black w3-margin-bottom" id="faerieHireBtn">Hire</button>
+              </div>
+            </div>
+
+            <div class="w3-third w3-margin-bottom">
+              <img src="images/elves.jpg" alt="Elves" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p>
+                  <b>Elves</b>
+                </p>
+                <p class="w3-opacity" id="elfCount">#:
+                  <span>0</span>
+                </p>
+                <div class="w3-opacity nowrap" id="elfCost">Cost:
+                  <span>750</span>
+                </div>
+                <p>Wood elves</p>
+                <button class="w3-button w3-black w3-margin-bottom" id="elfHireBtn">Hire</button>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+ 
+  <!-- Bottom Bar -->
+  <div style="float:bottom; width:100%; height: 50%; background-color:dimgrey"></div>
+  </div>
+  <!-- End Page Content -->
+
+  <!-- Footer -->
+  <footer>
+    <script src="interact.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="itemProd.js"></script>
+    <script src="main.js"></script>
+  </footer>
+  <!-- SCRIPTS-->
+  <script>
+    // Get the element with id="defaultOpen" and click on it
+    document.querySelector(".defaultOpen").click();
+  </script>
+</body>
+
 </html>
