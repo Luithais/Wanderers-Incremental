@@ -7,9 +7,7 @@
     /*------------------------------------------*/
 
         // Add materials
-        export const addMats = (mat,matQuantity) =>  {
-            mat = mat.count + matQuantity
-        };
+
     
 
     /////   DRAGGABLE ICONS  /////

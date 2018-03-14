@@ -1,6 +1,5 @@
 (function(){ "use strict";
 
-import addMats from 'itemProd';
     /////   INITIALISE OBJECTS  /////
         var goblin = {count:0, cost:25, production: 1};
         var faerie = {count:0, cost:200, production: 5};
@@ -142,9 +141,6 @@ import addMats from 'itemProd';
             addGold((elf.count * elf.production));
             $("#goldCount span").text(playerGold);
 
-            addMats(wood,wood.output);
-            addMats(arrow,arrow.output);
-            addMats(bow,bow.output);
             $("#woodCount span").text(wood.count);
             $("#arrowCount span").text(arrow.count);
             $("#bowCount span").text(bow.count);
