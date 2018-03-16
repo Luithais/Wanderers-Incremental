@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Workers from './Workers/Workers';
+import Resources from './Resources/Resources';
 import './App.css';
 
 class App extends Component {
+  
+  goldChangedHandler = (event) => {
+    this.setState( {
+      resources: [
+        { type:"Gold", count: event.target.value },
+      ]
+    } )
+  }
+
   render() {
     return (
       <div className="App">
-        <h1>work pls</h1>
-        
+        <Workers />
+        <Resources />
       </div>
     );
   }
