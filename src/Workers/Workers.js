@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Resources from '../Resources/Resources';
 import WorkersBackend from './WorkersBackend';
 
-
-
 class Workers extends Component{
     
     constructor(props) {
@@ -16,24 +14,22 @@ class Workers extends Component{
             ]
         };
     };
-    
-   
 
-
-
-    //1. Get array
-    //2. Set index to required value
-    //3. Push full array to state
 
     hireBtnClickHandler = (id) => {
 
-        var array=[...this.state.workers];
-        array[id].count = array[id].count + 1;
+        var workerArray=[...this.state.workers];
+        //var resourceArray=[...Resources.resources[0]];
+       
+        // while (resourceArray[0] >= workerArray[id].cost) {
+            workerArray[id].count = workerArray[id].count + 1;
+        //}
 
-        console.log(array[id]);
+        console.log(Resources.state.resources[0].count);
+        console.log(Resources.state);
         this.setState(
             {
-              workers: [array[0],array[1],array[2]]
+              workers: [workerArray[0],workerArray[1],workerArray[2]]
             }
         )
     }
@@ -50,15 +46,15 @@ class Workers extends Component{
 
                 <WorkersBackend
                     click={this.hireBtnClickHandler.bind(this,1)}
-                    name={ this.state.workers[1].name}
-                    cost={ this.state.workers[1].cost}
+                    name={this.state.workers[1].name}
+                    cost={this.state.workers[1].cost}
                     count={this.state.workers[1].count}/>
 
                 <WorkersBackend
                     click={this.hireBtnClickHandler.bind(this,2)}
                     name={this.state.workers[2].name}
                     cost={this.state.workers[2].cost}
-                    count={ this.state.workers[2].count}/>
+                    count={this.state.workers[2].count}/>
             </div>
         );
     };

@@ -29,4 +29,4 @@ class Resources extends Component {
     }
 }
 
-export default Resources
+export default Resources;
