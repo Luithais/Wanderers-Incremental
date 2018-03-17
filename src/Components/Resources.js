@@ -11,6 +11,12 @@ class Resources extends Component {
         ]
       };
 
+    //implement onChange listener (to listen
+    //for gold change from hireBtnClickHandler
+    //in Workers.js to avoid passing gold count
+    //between Resources & Workers; maintains a
+    //top-down unidirectional data flow )
+
     goldBtnClickHandler = (event) => {
         this.setState( {
             resources: [

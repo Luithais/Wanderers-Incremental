@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Resources from '../Resources/Resources';
+import Resources from '../Resources';
 import WorkersBackend from './WorkersBackend';
 
 class Workers extends Component{
@@ -25,8 +25,8 @@ class Workers extends Component{
             workerArray[id].count = workerArray[id].count + 1;
         //}
 
-        console.log(Resources.state.resources[0].count);
-        console.log(Resources.state);
+        console.log(<Resources />);
+        console.log(Resources.props);
         this.setState(
             {
               workers: [workerArray[0],workerArray[1],workerArray[2]]

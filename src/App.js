@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Workers from './Workers/Workers';
-import Resources from './Resources/Resources';
+import Workers from './Components/Workers/Workers';
+import Resources from './Components/Resources';
 import './App.css';
 
 class App extends Component {
