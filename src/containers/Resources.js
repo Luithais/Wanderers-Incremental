@@ -25,19 +25,19 @@ class Resources extends Component {
     //     })
     // }
 
-    updateGoldHandler(cost) {
-        if ((this.state.resources.gold - cost) > 0) {
+    updateGoldHandler = (cost) => {
+        if ((this.state.resources.gold - cost) >= 0) {
             this.setState({ resources: { ...this.state.resources, gold: (this.state.resources.gold - cost) } });
+            return true;
         } else {
             console.log('Not enough gold!');
+            return false;
         }
     }
 
     goldBtnClickHandler = (event) => {
         this.setState( {
-            resources: [
-                { type:"gold", count: this.state.resources[0].count +  1,}
-            ]       
+            resources: { gold: this.state.resources.gold + 1 }     
         });
     }
 

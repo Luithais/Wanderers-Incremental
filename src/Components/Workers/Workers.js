@@ -9,7 +9,7 @@ class Workers extends Component{
         console.log(props);
         this.state={
             workers:[
-                { name:"Goblins", count:0, cost:20, id: 0},
+                {name:"Goblins", count:0, cost:20, id: 0},
                 {name:"Faerie",count:0,cost:200,id:1},
                 {name:"Elf",count:0,cost:1500,id:2},
             ]
@@ -17,23 +17,18 @@ class Workers extends Component{
         this.hireBtnClickHandler = this.hireBtnClickHandler.bind(this);
     };
 
-    hireBtnClickHandler(id) {
-        
-        //var resourceArray=[...Resources.resources[0]];
-       
-        // while (resourceArray[0] >= workerArray[id].cost) {
-            // workerArray[id].count = workerArray[id].count + 1;
-        //}
+    hireBtnClickHandler = (id) => {
 
-
-
-        this.props.updateGoldHandler((this.state.workers.find(worker => worker.id === id)).cost);
-        // this.setState(
-        //     {
-        //       workers: [workerArray[0],workerArray[1],workerArray[2]]
-        //     }
-        // )
-    }
+        const worker = this.state.workers.find(worker => worker.id === id); 
+        if(this.props.updateGoldHandler(
+                worker.cost
+        ))
+        {
+            this.setState(
+                {workers:[...this.state.workers, worker.count ++]}
+            );
+        };
+    };
 
     render () {
         return(
