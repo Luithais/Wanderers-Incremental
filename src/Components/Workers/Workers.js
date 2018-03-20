@@ -8,25 +8,29 @@ class Workers extends Component{
         super(props);
         console.log(props);
         this.state={
-            workers:[
-                {name:"Goblins", count:0, cost:20, id: 0},
-                {name:"Faerie",count:0,cost:200,id:1},
-                {name:"Elf",count:0,cost:1500,id:2},
-            ]
+            workers:{
+                Goblins: {count:0, cost:20, prod: 1, id: 0},
+                Faerie: {count:0,cost:200, prod: 5, id:1},
+                Elf: {count:0,cost:1500, prod: 10, id:2},
+            }
         };
         this.hireBtnClickHandler = this.hireBtnClickHandler.bind(this);
     };
 
     hireBtnClickHandler = (id) => {
+        
+        const worker = Object.values(this.state.workers).find(worker => worker.id === id);
+        const workerKey = Object.keys(this.state.workers).find(key => worker[key].id === id);
 
-        const worker = this.state.workers.find(worker => worker.id === id); 
+        //worker = {count:0, cost:20, prod:1, id: 0};
+
         if(this.props.updateGoldHandler(
-                worker.cost
+            worker.cost
         ))
         {
-            this.setState(
-                {workers:[...this.state.workers, worker.count ++]}
-            );
+            this.setState( {
+                workers: {{workerKey}: this.state.workers.{workerKey}.count }     
+            });
         };
     };
 
@@ -35,21 +39,21 @@ class Workers extends Component{
             <div>
                 <WorkersBackend
                     click={() => this.hireBtnClickHandler(0)}
-                    name={this.state.workers[0].name}
-                    cost={this.state.workers[0].cost}
-                    count={this.state.workers[0].count}/>
+                    name={"Goblins"}
+                    cost={this.state.workers.Goblins.cost}
+                    count={this.state.workers.Goblins.count}/>
 
                 <WorkersBackend
                     click={() => this.hireBtnClickHandler(1)}
-                    name={this.state.workers[1].name}
-                    cost={this.state.workers[1].cost}
-                    count={this.state.workers[1].count}/>
+                    name={"Faeries"}
+                    cost={this.state.workers.Faerie.cost}
+                    count={this.state.workers.Faerie.count}/>
 
                 <WorkersBackend
                     click={() => this.hireBtnClickHandler(2)}
-                    name={this.state.workers[2].name}
-                    cost={this.state.workers[2].cost}
-                    count={this.state.workers[2].count}/>
+                    name={"Elves"}
+                    cost={this.state.workers.Elf.cost}
+                    count={this.state.workers.Elf.count}/>
             </div>
         );
     };
