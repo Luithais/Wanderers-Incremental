@@ -20,17 +20,14 @@ class Workers extends Component{
     hireBtnClickHandler = (id) => {
         
         const worker = Object.values(this.state.workers).find(worker => worker.id === id);
-        const workerKey = Object.keys(this.state.workers).find(key => worker[key].id === id);
+        const workerKey = Object.keys(this.state.workers)[id];
 
-        //worker = {count:0, cost:20, prod:1, id: 0};
-
-        if(this.props.updateGoldHandler(
-            worker.cost
-        ))
+        if(this.props.updateGoldHandler(worker.cost))
         {
-            this.setState( {
-                workers: {{workerKey}: this.state.workers.{workerKey}.count }     
-            });
+            //update count of worker
+            worker.count ++;
+            this.setState({ worker });
+                        
         };
     };
 
