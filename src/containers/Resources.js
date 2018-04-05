@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Workers from '../components/Workers/Workers';
+import GameLoop from './GameLoop';
+
 
 class Resources extends Component {
 
@@ -35,7 +37,7 @@ class Resources extends Component {
     render (){
         return (
             <div>
-                <Workers updateGoldHandler={this.updateGoldHandler}/>
+                <Workers updateGoldHandler={this.updateGoldHandler} addGoldHandler={this.addGoldHandler}/>
                 <div>{this.state.resources.gold}</div>
                 <button onClick={this.goldBtnClickHandler}>Add Gold</button>
             </div>
