@@ -31,6 +31,10 @@ class Workers extends Component{
         {
             //update count of worker
             worker.count ++;
+
+            //update cost of worker
+            worker.cost = Math.floor(worker.cost * Math.pow(1.1,worker.count)); 
+
             this.setState({ worker });
 
         };

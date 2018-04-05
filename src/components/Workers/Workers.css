@@ -3,6 +3,8 @@
     width: 50%;
 }
 
+body {background-color: rgb(39, 39, 39);}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";

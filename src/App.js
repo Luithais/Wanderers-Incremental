@@ -3,6 +3,7 @@ import Workers from './components/Workers/Workers';
 import Resources from './containers/Resources';
 import GameLoop from './containers/GameLoop';
 import { Loop, Stage } from 'react-game-kit';
+import Tabs from './components/Workers/Workers';
 import './App.css';
 
 class App extends Component {
