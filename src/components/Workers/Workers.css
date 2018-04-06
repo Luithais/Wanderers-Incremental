@@ -3,8 +3,29 @@
     width: 50%;
 }
 
-body {background-color: rgb(39, 39, 39);}
+.left {
+    width: 20%;
+    padding: 25px;
+}
 
+.right {
+    width: 70%;
+}
+
+body {
+    background-color: rgb(54, 54, 54)
+}
+
+h3 {
+    color: whitesmoke;
+    font-family: "Lucida Sans Unicode";
+}
+
+p  {
+    color: whitesmoke;
+    font-family: "Lucida Sans Unicode";
+    font-size: 0.65em;
+}
 /* Clear floats after the columns */
 .row:after {
     content: "";
@@ -12,6 +33,6 @@ body {background-color: rgb(39, 39, 39);}
     clear: both;
 }
 
-.worker {
-    padding: 10%;
+.workerRight {
+    padding: 5px
 }

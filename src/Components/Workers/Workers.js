@@ -6,6 +6,10 @@ import styles from './Workers.css';
 import GoblinImg from '../../img/goblin.png';
 import FaerieImg from '../../img/faerie.png';
 import ElfImg from '../../img/elf.png';
+import woodImg from '../../img/wood.png'
+import arrowImg from '../../img/arrow.png'
+import bowImg from '../../img/bow.png'
+
 
 class Workers extends Component{
     
@@ -49,34 +53,34 @@ class Workers extends Component{
                     elves={this.state.workers.Elves}
                     addGold={this.props.addGoldHandler} />
 
-                    <div className="row">
-                        <div className="column">
-                            <WorkersBackend 
-                                click={() => this.hireBtnClickHandler(0)}
-                                image={GoblinImg}
-                                name={"Goblins"}
-                                cost={this.state.workers.Goblins.cost}
-                                count={this.state.workers.Goblins.count}
-                                prod={this.state.workers.Goblins.prod}/>
-        
-                            <WorkersBackend
-                                click={() => this.hireBtnClickHandler(2)}
-                                image={ElfImg}
-                                name={"Elves"}
-                                cost={this.state.workers.Elves.cost}
-                                count={this.state.workers.Elves.count}
-                                prod={this.state.workers.Elves.prod}/>
-                        </div>
-                        <div className="column">
-                            <WorkersBackend
-                                click={() => this.hireBtnClickHandler(1)}
-                                image={FaerieImg}
-                                name={"Faeries"}
-                                cost={this.state.workers.Faeries.cost}
-                                count={this.state.workers.Faeries.count}
-                                prod={this.state.workers.Faeries.prod}/>
-                        </div>
-                    </div>
+                <WorkersBackend 
+                    click={() => this.hireBtnClickHandler(0)}
+                    image={GoblinImg}
+                    resourceImg={woodImg}
+                    name="Goblins"
+                    cost={this.state.workers.Goblins.cost}
+                    count={this.state.workers.Goblins.count}
+                    prod={this.state.workers.Goblins.prod}/>
+
+                    
+                <WorkersBackend 
+                    click={() => this.hireBtnClickHandler(1)}
+                    image={FaerieImg}
+                    resourceImg={arrowImg}
+                    name="Faeries"
+                    cost={this.state.workers.Faeries.cost}
+                    count={this.state.workers.Faeries.count}
+                    prod={this.state.workers.Faeries.prod}/>
+
+                <WorkersBackend 
+                    click={() => this.hireBtnClickHandler(1)}
+                    image={ElfImg}
+                    resourceImg={bowImg}
+                    name="Elves"
+                    cost={this.state.workers.Elves.cost}
+                    count={this.state.workers.Elves.count}
+                    prod={this.state.workers.Elves.prod}/>
+
             </div>
         );
     };

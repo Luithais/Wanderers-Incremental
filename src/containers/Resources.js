@@ -38,7 +38,7 @@ class Resources extends Component {
         return (
             <div>
                 <Workers updateGoldHandler={this.updateGoldHandler} addGoldHandler={this.addGoldHandler}/>
-                <div>{this.state.resources.gold}</div>
+                <p>{this.state.resources.gold}</p>
                 <button onClick={this.goldBtnClickHandler}>Add Gold</button>
             </div>
         )
