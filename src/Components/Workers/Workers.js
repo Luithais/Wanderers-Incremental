@@ -7,6 +7,7 @@ import GoblinImg from '../../img/goblin.png';
 import FaerieImg from '../../img/faerie.png';
 import ElfImg from '../../img/elf.png';
 import woodImg from '../../img/wood.png'
+import woodImgBg from '../../img/woodBg.png'
 import arrowImg from '../../img/arrow.png'
 import bowImg from '../../img/bow.png'
 
@@ -18,7 +19,7 @@ class Workers extends Component{
         console.log(props);
         this.state={
             workers:{
-                Goblins: {count:0, cost:20, prod: 1, id: 0},
+                Goblins: {count:0, cost:20, prod: 0.5, id: 0},
                 Faeries: {count:0,cost:200, prod: 5, id:1},
                 Elves: {count:0,cost:1500, prod: 10, id:2},
             }
@@ -57,29 +58,12 @@ class Workers extends Component{
                     click={() => this.hireBtnClickHandler(0)}
                     image={GoblinImg}
                     resourceImg={woodImg}
+                    resourceImgBg={woodImgBg}
                     name="Goblins"
                     cost={this.state.workers.Goblins.cost}
                     count={this.state.workers.Goblins.count}
                     prod={this.state.workers.Goblins.prod}/>
 
-                    
-                <WorkersBackend 
-                    click={() => this.hireBtnClickHandler(1)}
-                    image={FaerieImg}
-                    resourceImg={arrowImg}
-                    name="Faeries"
-                    cost={this.state.workers.Faeries.cost}
-                    count={this.state.workers.Faeries.count}
-                    prod={this.state.workers.Faeries.prod}/>
-
-                <WorkersBackend 
-                    click={() => this.hireBtnClickHandler(1)}
-                    image={ElfImg}
-                    resourceImg={bowImg}
-                    name="Elves"
-                    cost={this.state.workers.Elves.cost}
-                    count={this.state.workers.Elves.count}
-                    prod={this.state.workers.Elves.prod}/>
 
             </div>
         );

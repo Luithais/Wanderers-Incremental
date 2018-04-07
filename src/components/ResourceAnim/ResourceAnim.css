@@ -1,0 +1,9 @@
+.emptyResource {
+    position:relative;
+    z-index:-1;
+}
+
+.resourceProgress {
+    position: absolute;
+    z-index: 10
+}
