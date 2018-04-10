@@ -18,6 +18,25 @@ class Resources extends Component {
         this.setState({resources: {...this.state.resources, gold: this.state.resources.gold + amount}});
     };
 
+    addResourceHandler = (type, amount) => {
+        switch (type) {
+            case 'wood':
+                 this.setState({resources: {...this.state.resources, [type]: this.state.resources.wood + amount}})
+                break;
+
+            case 'arrow':
+                this.setState({resources: {...this.state.resources, [type]: this.state.resources.arrow + amount}})
+                break;
+
+            case 'bow':
+                this.setState({resources: {...this.state.resources, [type]: this.state.resources.bow + amount}})
+                break;
+
+            default:
+                break;
+        }
+    };
+
     updateGoldHandler = (cost) => {
         if ((this.state.resources.gold - cost) >= 0) {
             this.setState({ resources: { ...this.state.resources, gold: (this.state.resources.gold - cost) } });
@@ -30,14 +49,15 @@ class Resources extends Component {
 
     goldBtnClickHandler = (event) => {
         this.setState( {
-            resources: { gold: this.state.resources.gold + 1 }     
+            resources: { ...this.state.resources, gold: this.state.resources.gold + 1 }     
         });
     };
 
     render (){
         return (
             <div>
-                <Workers updateGoldHandler={this.updateGoldHandler} addGoldHandler={this.addGoldHandler}/>
+                <Workers updateGoldHandler={this.updateGoldHandler} addGoldHandler={this.addGoldHandler}
+                 addResourceHandler={this.addResourceHandler} resources={this.state.resources}/>
                 <p>{this.state.resources.gold}</p>
                 <button onClick={this.goldBtnClickHandler}>Add Gold</button>
             </div>

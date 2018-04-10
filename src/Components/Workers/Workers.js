@@ -16,12 +16,11 @@ class Workers extends Component{
     
     constructor(props) {
         super(props);
-        console.log(props);
         this.state={
             workers:{
-                Goblins: {count:0, cost:20, prod: 0.5, id: 0},
-                Faeries: {count:0,cost:200, prod: 5, id:1},
-                Elves: {count:0,cost:1500, prod: 10, id:2},
+                Goblins: {count:0, cost:20, prod: 0.5, resource: "wood", id: 0},
+                Faeries: {count:0,cost:200, prod: 5, resource: "arrow", id:1},
+                Elves: {count:0,cost:1500, prod: 10, resource: "bow", id:2},
             }
         };
         this.hireBtnClickHandler = this.hireBtnClickHandler.bind(this);
@@ -56,15 +55,16 @@ class Workers extends Component{
 
                 <WorkersBackend 
                     click={() => this.hireBtnClickHandler(0)}
+                    addProd={(type, amount) => this.props.addResourceHandler(type, amount)}
                     image={GoblinImg}
                     resourceImg={woodImg}
                     resourceImgBg={woodImgBg}
                     name="Goblins"
                     cost={this.state.workers.Goblins.cost}
                     count={this.state.workers.Goblins.count}
-                    prod={this.state.workers.Goblins.prod}/>
-
-
+                    prod={this.state.workers.Goblins.prod}
+                    resourceName={this.state.workers.Goblins.resource}
+                    resources={this.props.resources}/>
             </div>
         );
     };
