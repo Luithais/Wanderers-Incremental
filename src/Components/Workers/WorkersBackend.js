@@ -3,12 +3,14 @@ import styles from './Workers.css';
 import ResourceAnim from '../ResourceAnim/ResourceAnim';
 import WorkerHire from './WorkerHire';
 import WorkerProd from "./WorkerProd";
+import loop from 'react-game-kit/lib/components/loop';
 
 class WorkersBackend extends Component{
     
     constructor(props) {
         super(props);
         this.updateProd = this.updateProd.bind();
+        this.stamUpgrade = this.stamUpgrade.bind();
     }
     
 
@@ -19,7 +21,15 @@ class WorkersBackend extends Component{
             wood: 0,
             arrow: 0,
             bow : 0,
-        }
+        },
+
+        maxStamina: {
+            wood: 5,
+            arrow: 3,
+            bow: 1,
+        },
+
+        renderList: []
     };
 
     updateProd = () => {
@@ -52,6 +62,41 @@ class WorkersBackend extends Component{
         this.setState({wood: this.state.readyResource.wood ++});
     };
 
+    addToList = (amount) => {
+        for (let index = 0; index < amount; index++) {
+            this.state.renderList.push(
+            <td>
+                <div>
+                    <ResourceAnim 
+                        addReadyResource={this.addReadyResource} 
+                        delay={0}
+                        animSpeed={(1000/(this.props.prod * this.props.count))/10} count={this.props.count}
+                        resourceName={this.props.resourceName}/>
+                </div>                               
+            </td>
+
+            )
+        }
+        this.setState({key: Math.random()})
+
+    }
+
+    stamUpgrade = () => {
+        switch (this.props.resourceName) {
+            case 'wood':
+                this.addToList(this.state.maxStamina.wood);
+                this.setState({maxStamina: {wood:this.state.maxStamina.wood * 2}});
+                this.setState({readyResource: {wood: 0}});
+                console.log(this.state.maxStamina.wood);
+                console.log(this.state.renderList);
+                
+                break;
+        
+            default:
+                break;
+        }
+    }
+
     render () {
         return (
             <div className="row">
@@ -68,7 +113,9 @@ class WorkersBackend extends Component{
                         {this.state.readyResource.arrow};
                         {this.state.readyResource.bow};
                         <WorkerHire {...this.props}/>
-                        <WorkerProd {...this.props} key={this.state.key} addReadyResource={this.addReadyResource}/>  
+                        <WorkerProd {...this.props} key={this.state.key} addReadyResource={this.addReadyResource} renderList={this.state.renderList}
+                         readyResource={this.state.readyResource} maxStamina={this.state.maxStamina}
+                         stamUpgrade={this.stamUpgrade}/>  
                         <h4>Wood: </h4><p>{this.props.resources.wood}</p>                      
                         <button onClick={() => this.updateProd()}>Collect Resource!</button>           
                     </div>       
