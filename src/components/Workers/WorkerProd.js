@@ -74,8 +74,8 @@ class WorkerProd extends Component{
                                         resourceName={this.props.resourceName}/>                             
                                 </div>                               
                             </td>
-                            {this.props.renderList}
                         </tr>
+                        {this.props.renderList}
                     </tbody>
                 </table> 
             </div>

@@ -63,22 +63,26 @@ class WorkersBackend extends Component{
     };
 
     addToList = (amount) => {
-        for (let index = 0; index < amount; index++) {
-            this.state.renderList.push(
-            <td>
-                <div>
-                    <ResourceAnim 
-                        addReadyResource={this.addReadyResource} 
-                        delay={0}
-                        animSpeed={(1000/(this.props.prod * this.props.count))/10} count={this.props.count}
-                        resourceName={this.props.resourceName}/>
-                </div>                               
-            </td>
 
+        var delayCalc = (((1000/(this.props.prod * this.props.count))/10) * (amount * 10));
+        var count = amount;
+
+        for (let index = 0; index < count; index++) {
+            this.state.renderList.push(
+                <td>
+                    <div>
+                        <ResourceAnim 
+                            addReadyResource={this.addReadyResource} 
+                            delay={delayCalc}
+                            animSpeed={(1000/(this.props.prod * this.props.count))/10} count={this.props.count}
+                            resourceName={this.props.resourceName}/>
+                    </div>                               
+                </td>
             )
+            amount ++;
+            delayCalc = (((1000/(this.props.prod * this.props.count))/10) * (amount * 10));
         }
         this.setState({key: Math.random()})
-
     }
 
     stamUpgrade = () => {
